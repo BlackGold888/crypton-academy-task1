@@ -5,7 +5,7 @@ async function readFile(fileName) {
         try {
             fs.readFile(fileName, 'utf8', function (err, data) {
                 if (err) {
-                    return console.log(err);
+                    reject(err)
                 }
 
                 let inputLines = data.split("\r\n");
@@ -20,7 +20,7 @@ async function readFile(fileName) {
 }
 
 function writeFile(fileName, data) {
-    fs.writeFile(fileName, `${data}`, function (err, data) {
+    fs.writeFile(fileName, `${data}`, function (err) {
         if (err) {
             return console.log(err);
         }
